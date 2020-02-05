@@ -1,9 +1,9 @@
 #install.packages('devtools')
 #install.packages("ggplot2")
 #install.packages("gmodels")
-library(devtools)
-library(ggplot2)
-library(gmodels)
+#library(devtools)
+#library(ggplot2)
+#library(gmodels)
 
 mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
 dim(mydata)
@@ -45,7 +45,20 @@ plVStatus<-function()
 
 ## Variable Rateplan with respect to the Status
 levels(mydata$RatePlan)
-CrossTable(mydata$RatePlan,mydata$Status,prop.chisq=FALSE)
+#gmodels::CrossTable(mydata$RatePlan,mydata$Status,prop.chisq=FALSE)
+#' Plot th CrossTable for RatePlane Variable with respect to Status
+#'
+#' @return CrossTable
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'    CrossVRateplan()
+#' }
+CrossVRateplan<-function()
+{
+  gmodels::CrossTable(mydata$RatePlan,mydata$Status,prop.chisq=FALSE)
+}
 par(mfrow=c(1,2)) # Two plots in one row
 table1<-table(mydata$Status, mydata$RatePlan)
 prob.t<-prop.table(table1, margin=2)
