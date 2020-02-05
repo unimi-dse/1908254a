@@ -2,7 +2,7 @@
 % Please edit documentation in R/testo.R
 \name{CrossVRateplan}
 \alias{CrossVRateplan}
-\title{CrossTable for RatePlane Variable with respect to Status}
+\title{Plot th CrossTable for RatePlane Variable with respect to Status}
 \usage{
 CrossVRateplan()
 }
@@ -10,7 +10,7 @@ CrossVRateplan()
 CrossTable
 }
 \description{
-CrossTable for RatePlane Variable with respect to Status
+Plot th CrossTable for RatePlane Variable with respect to Status
 }
 \examples{
 \dontrun{
