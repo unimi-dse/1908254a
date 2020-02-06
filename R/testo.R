@@ -3,12 +3,25 @@
 #install.packages("gmodels")
 library(devtools)
 library(ggplot2)
-#library(gmodels)
+library(gmodels)
 
 mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
 dim(mydata)
 colnames(mydata)
-colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
+##colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
+#' Change names of columns
+#'
+#' @return Vector
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' newcolnames()
+#' }
+newcolnames<-function()
+{
+  colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
+}
 
 #sapply(mydata,function(x)sum(is.na(x)))  # apply a function over a vector
 #' Missing values in mydata
@@ -83,7 +96,7 @@ palette<-function()
 
 table1<-table(mydata$Status)
 ##plot(mydata$Status, xlab="Status of the SIM", ylab="Frequence", main= "Variable Status of the SIM", col=palette)
-#' Variable Status of the SIM
+#' Plot variable Status of the SIM
 #'
 #' Descrizione
 #'
@@ -130,6 +143,7 @@ CrossVRateplan<-function()
 {
   gmodels::CrossTable(mydata$RatePlan,mydata$Status,prop.chisq=FALSE)
 }
+
 par(mfrow=c(1,2)) # Two plots in one row
 table1<-table(mydata$Status, mydata$RatePlan)
 prob.t<-prop.table(table1, margin=2)
@@ -149,6 +163,24 @@ pie(tuamatic, main="Status of Tuamatic", labels = lbls2, col=palette,init.angle 
 legend("topleft",leg_pie_Tuamatic, legend=leg_pie_Tuamatic, cex=0.6,fill = palette, box.col = palette)
 
 par(mfrow=c(1,1))
+
+### Variable Lifespan_days with respect to Status
+##plot(mydata$Status,mydata$Lifespan_days,col=palette)
+#' Plot variable Lifespan_days with respect to Status
+#'
+#' @return Plot
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' plvlifespan()
+#' }
+plvlifespan<-function()
+{
+  plot(mydata$Status,mydata$Lifespan_days,col=palette)
+}
+
+
 
 
 ## Variable LastCallCenter_days with respect to Status
@@ -170,7 +202,7 @@ plot(mydata$Status,mydata$LastCallCenter_days,xlab="Status of the SIM",ylab="Day
   #' }
 gglastcall<-function()
 {
-  ggplot2::ggplot(data=mydata, aes(x=LastCallCenter_days,fill=Status)) + geom_histogram() +
+  ggplot2::ggplot(data=mydata, aes(x=LastCallCenter_days,y=Status)) + geom_histogram() +
     facet_wrap(. ~ Status) +
     theme(legend.title=element_blank(), legend.position="bottom") +
     labs(x="Days from the last call to call center",y="Frequence")+
