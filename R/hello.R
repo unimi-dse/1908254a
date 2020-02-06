@@ -1,17 +1,3 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
 
 nonfunziona <- function() {
 
@@ -22,45 +8,36 @@ nonfunziona <- function() {
   library(ggplot2)
 
   ec <- as.data.frame(getSymbols(Symbols = "EUR/CNH", src = 'oanda', auto.assign = FALSE))
-  ec$date<-as.Date(rownames(ec))
+  ec_date<-as.Date(ec[,1])
 
-  dateInput(ec, ec$date , value = NULL, min = NULL, max = NULL,
-            format = "yyyy-mm-dd", weekstart = 0,
-             width = NULL)
 
-  # Define UI for app that draws a histogram ----
   ui <- fluidPage(
 
-    # App title ----
     titlePanel("DISPERAZIONE"),
 
-    # Sidebar layout with input and output definitions ----
     sidebarLayout(
 
-      # Sidebar panel for inputs ----
-      sidebarPanel(
+        sidebarPanel(
 
-        # Input: Slider for the number of bins ----
-        sliderInput(inputId = "ec",
-                    min=as.Date('2019-11-01'), max=as.Date('2020-02-01'), value = 30,
-                    timeFormat = '%Y-%m-%d'),
-        selectInput('ec',  c('EUR/CNH')
-      )
+            sliderInput(dateRangeInput("ecdate", "Date:", max=(Sys.Date() , min=as.Date("2019-11-01") ,value = 10)
 
-      ),
 
-      # Main panel for displaying outputs ----
+          #inputId = "ec_date",
+                    #min=as.Date('2019-11-01'), max=as.Date('2020-02-01'), value = 30,
+                    #timeFormat = '%Y-%m-%d'),
+        #selectInput('ec',  c('EUR/CNH')
+      #)
+
+
+
       mainPanel(
 
-        # Output: Histogram ----
-        plotOutput(outputId = "distPlot",
+          plotOutput(outputId = "distPlot",
                    value=1)
 
-      )
-    )
-  )
+      #))))
 
-  # Define server logic required to draw a histogram ----
+
   server <- function(input, output) {
 
     dataInput <- reactive({
@@ -71,23 +48,21 @@ nonfunziona <- function() {
     })
 
 
-
-    output$plot<- renderPlot({
+))
+    output<- renderPlot({
 
       ec <- as.data.frame(getSymbols(Symbols = "EUR/CNH", src = 'oanda', auto.assign = FALSE))
       ec$date<-rownames(ec)
 
       #uc <- as.data.frame(getSymbols(Symbols = "USD/CNH", src= 'oanda', auto.assign = FALSE))
         #uc$date<-rownames(uc)
-      plot_ly(x=ec$date, y=ec$EUR.CNH ,type = 'scatter', mode = 'lines+markers',color =~ec$EUR.CNH) #%>% add_trace(x=uc$date, y=uc$USD.CNH ,type = 'scatter', mode = 'lines+markers')
-      # hist(x, col = "#75AADB", border = "white",
-      #      xlab = "Waiting time to next eruption (in mins)",
-      #      main = "Histogram of waiting times")
+      plot_ly(x=ec$ec_date, y=ec$EUR.CNH ,type = 'scatter', mode = 'lines+markers',color =~ec$EUR.CNH) #%>% add_trace(x=uc$date, y=uc$USD.CNH ,type = 'scatter', mode = 'lines+markers')
 
     })
 
-  }
+
 
   shinyApp(ui, server)
 
+}
 }
