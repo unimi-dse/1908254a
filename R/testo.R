@@ -1,11 +1,24 @@
 #install.packages('devtools')
 #install.packages("ggplot2")
 #install.packages("gmodels")
-library(devtools)
-library(ggplot2)
-library(gmodels)
+#library(devtools)
+#library(ggplot2)
+#library(gmodels)
 
 mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
+#' Descriptive analysis of mydata
+#'
+#' @return
+#' @export
+#'
+#' @examples
+descriptive<-function()
+{
+  x=dim(mydata)
+  y=colnames(mydata)
+  return(x)
+  }
+
 dim(mydata)
 colnames(mydata)
 ##colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
