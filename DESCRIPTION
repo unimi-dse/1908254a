@@ -9,3 +9,4 @@ Description: shiny app description
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.0.2
