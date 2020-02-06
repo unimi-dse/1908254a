@@ -4,41 +4,51 @@
 #library(devtools)
 #library(ggplot2)
 #library(gmodels)
+library(tidyverse)
 
-mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
-#' Descriptive analysis of mydata
-#'
-#' @return
-#' @export
-#'
-#' @examples
-descriptive<-function()
-{
-  x=dim(mydata)
-  y=colnames(mydata)
-  return(x)
-  }
+#mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
+#save(mydata, file="C:/Users/Admin/Desktop/UNIVERSITA/DSE/CODING/Progetto/1908254a/data/mydata.rda")
 
-dim(mydata)
-colnames(mydata)
-##colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
-#' Change names of columns
-#'
-#' @return Vector
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' newcolnames()
-#' }
-newcolnames<-function()
-{
-  colnames(mydata)<- c("RatePlan", "Status", "Lifespan_days", "LastCallCenter_days", "LastTopUp_days", "RetailChannel","Minutes_Feb","Minutes_Gen", "Minutes_Dic", "Video_Feb", "Video_Gen", "Video_Dic", "SMS_Feb","SMS_Gen", "SMS_Dic", "Web_Feb", "Web_Gen", "Web_Dic" )
+### Descriptive Analysis ###
+
+runDescriptive <- function(){
+
+  mydata<-read.csv2('TelefMob.csv',header = TRUE,sep = ";",dec=",",na.strings = "nd")
+
+  dim(mydata)
+
+  colnames(mydata)
+
+ phone <- mydata %>%
+    rename(RatePlan=DES_PIANO_TARIFFARIO_BILLING,
+           Status=DES_MACRO_STATO,
+           Lifespan_days=CICLO_VITA_SIM_gg,
+           LastCallCenter_days=gg_DA_ULTIMA_CHIAMATA,
+           LastTopUp_days=gg_DA_ULTIMA_RICARICA,
+           RetailChannel=DES_CANALE_VENDITA,
+           Minutes_Feb=MINUTI_FEB,
+           Minutes_Gen=MINUTI_GEN,
+           Minutes_Dic=MINUTI_DIC,
+           Video_Feb=VIDEO_FEB,
+           Video_Gen=VIDEO_GEN,
+           Video_Dic=VIDEO_DIC,
+           SMS_Feb=MESSAGGI_FEB,
+           SMS_Gen=MESSAGGI_GEN,
+           SMS_Dic=MESSAGGI_DIC,
+           Web_Feb=WEB_FEB,
+           Web_Gen=WEB_GEN,
+           Web_Dic=WEB_DIC    )
+  colnames(phone)
+
+
+  return(phone)
 }
+
 
 #sapply(mydata,function(x)sum(is.na(x)))  # apply a function over a vector
 #' Missing values in mydata
 #'
+
 #' @return Number of missing values for each column
 #' @export
 #'
@@ -46,10 +56,19 @@ newcolnames<-function()
 #' \dontrun{
 #'    sapplymydata()
 #' }
-sapplymydata<-function()
-{
-  sapply(mydata,function(x)sum(is.na(x)))  # apply a function over a vector
+# sapplymydata<-function()
+# {
+#   sapply(mydata,function(x)sum(is.na(x)))  # apply a function over a vector
+#   mydata[complete.cases(mydata),]
+# }
+clean.na <- function() {
+
+  mobstatus::phone [complete.cases(mobstatus::phone),]
+
+
 }
+
+clean.na()
 
 #mydata<-mydata[complete.cases(mydata),]  # vector without missing values
 #' Complete cases in mydata
@@ -61,16 +80,19 @@ sapplymydata<-function()
 #' \dontrun{
 #'    completemydata()
 #' }
-completemydata<-function()
-{
-  mydata<-mydata[complete.cases(mydata),]
+completemydata<-function() {
+
+  mydata <- mydata[complete.cases(mydata),]
+
 }
+
+mydata
 
 dim(mydata) # 20 observations less
 
 summary(mydata$Status)
 table(mydata$Status)
-
+mydata$DES_MACRO_STATO <- factor(mydata$DES_MACRO_STATO)
 str(mydata)
 
 ##mydata$Status<-as.factor(mydata$Status)
@@ -154,7 +176,8 @@ barplot(table(mydata$RatePlan)/length(mydata$RatePlan)*100, col=palette)
 #' }
 CrossVRateplan<-function()
 {
-  gmodels::CrossTable(mydata$RatePlan,mydata$Status,prop.chisq=FALSE)
+
+  gmodels::CrossTable(mydata$RatePlan,factor(mydata$Status),prop.chisq=FALSE)
 }
 
 par(mfrow=c(1,2)) # Two plots in one row
@@ -215,9 +238,9 @@ plot(mydata$Status,mydata$LastCallCenter_days,xlab="Status of the SIM",ylab="Day
   #' }
 gglastcall<-function()
 {
-  ggplot2::ggplot(data=mydata, aes(x=LastCallCenter_days,y=Status)) + geom_histogram() +
-    facet_wrap(. ~ Status) +
-    theme(legend.title=element_blank(), legend.position="bottom") +
-    labs(x="Days from the last call to call center",y="Frequence")+
-    scale_fill_manual(values=palette)
+  ggplot2::ggplot(data=mydata, ggplot2::aes(x=mydata$LastCallCenter_days,y=mydata$Status)) + ggplot2::geom_bar() +
+    ggplot2::facet_wrap(. ~ Status) +
+    ggplot2::theme(legend.title= ggplot2::element_blank(), legend.position="bottom") +
+    ggplot2::labs(x="Days from the last call to call center",y="Frequence")+
+    ggplot2::scale_fill_manual(values=palette)
 }
