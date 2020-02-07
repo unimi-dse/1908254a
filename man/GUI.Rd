@@ -6,6 +6,9 @@
 \usage{
 GUI()
 }
+\value{
+shiny app
+}
 \description{
-Create a Graphic User Interface
+Create a graphic user interface and acquire data
 }
