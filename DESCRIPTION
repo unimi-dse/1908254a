@@ -7,6 +7,7 @@ Maintainer: Martina Viggiano <martina.viggiano2@studenti.unimi.it>
 Description: shiny app description
     What it does
 License: GPL-3
+Imports: shiny, plotly, quantmod
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2

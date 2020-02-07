@@ -1,6 +1,4 @@
 ##UI
-library(shiny)
-library(plotly)
 ui <- fluidPage(
 
 
@@ -31,7 +29,7 @@ ui <- fluidPage(
     mainPanel(
 
       # Output: Histogram ----
-      plotlyOutput(outputId = "distPlot")
+      plotly::plotlyOutput(outputId = "distPlot")
 
     )
   )

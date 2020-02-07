@@ -5,5 +5,5 @@
 #' @export
 #'
 data_acq <- function(){
-return(as.data.frame(getSymbols(Symbols = "EUR/CNH", src = 'oanda', auto.assign = FALSE)))
+return(as.data.frame(quantmod::getSymbols(Symbols = "EUR/CNH", src = 'oanda', auto.assign = FALSE)))
 }
