@@ -1,8 +1,9 @@
 #' Create a Graphic User Interface
 #'
 #' @export
+library(shiny)
 GUI <- function(){
 
-  shiny::runApp(system.file("shiny/GUI", package = "eurcnh"))
+  runApp(system.file("shiny/GUI", package = "eurcnh"))
 
 }
