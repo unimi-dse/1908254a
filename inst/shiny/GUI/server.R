@@ -13,7 +13,7 @@ server <- function(input, output) {
    # endate<- input$ec_date #widget
 
 #ecdate{inizioFISSO:fineENDDATE
-    plotly::plot_ly(x=ec$ec_date, y=ec$EUR.CNH ,type = 'scatter', mode = 'lines+markers') #%>% add_trace(x=uc$date, y=uc$USD.CNH ,type = 'scatter', mode = 'lines+markers')
+    plotly::plot_ly(x=ec$date, y=ec$EUR.CNH ,type = 'scatter', mode = 'lines+markers', color =~ec$EUR.CNH) #%>% add_trace(x=uc$date, y=uc$USD.CNH ,type = 'scatter', mode = 'lines+markers')
 
   })
 
