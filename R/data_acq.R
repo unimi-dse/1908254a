@@ -1,7 +1,7 @@
 
 #' Data acquisition
 #'
-#' @return Data frame
+#' @return data.frame
 #' @export
 #'
 data_acq <- function(){
