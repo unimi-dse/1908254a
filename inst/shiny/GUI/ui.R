@@ -29,7 +29,7 @@ ui <- fluidPage(
     mainPanel(
 
       # Output: Histogram ----
-      plotly::plotlyOutput(outputId = "distPlot")
+      plotly::plotlyOutput(outputId = "ecplotly")
 
     )
   )

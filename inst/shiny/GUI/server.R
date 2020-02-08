@@ -7,7 +7,7 @@ server <- function(input, output) {
 
  ec<-data_acq()
 
-  output$distPlot <- plotly::renderPlotly({
+  output$ecplotly <- plotly::renderPlotly({
 
 
    # endate<- input$ec_date #widget
