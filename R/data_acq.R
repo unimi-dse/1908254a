@@ -9,3 +9,4 @@ return(as.data.frame(quantmod::getSymbols(Symbols = id,
                                           src = 'oanda',
                                           auto.assign = FALSE)))
 }
+### or cambia prima riga con id "..comè" src 'oanda'  e sotto in parentesi "select" + in interfaccia ui in sidebar...
