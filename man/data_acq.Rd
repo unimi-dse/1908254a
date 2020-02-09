@@ -4,7 +4,7 @@
 \alias{data_acq}
 \title{Data acquisition}
 \usage{
-data_acq(id = "EUR/CNH", start = "2020-01-01", end = Sys.Date())
+data_acq(id = "EUR/CNH")
 }
 \value{
 data.frame

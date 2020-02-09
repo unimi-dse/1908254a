@@ -5,7 +5,7 @@ server <- function(input, output) {
   #ec_date <- as.Date(ec[,1])
   #endv <- nrow(ec)
 
- ec<-data_acq()
+ ec <- data_acq()
 
   output$ecplotly <- plotly::renderPlotly({
 

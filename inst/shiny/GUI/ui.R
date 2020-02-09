@@ -11,18 +11,17 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
 
-      # Input: Slider for the number of bins ----
-      #sliderInput(
-       # inputId = "ec_date",
-        #label = "Date:",
-        #min =  1,
-        #max = function(){ec <- as.data.frame(getSymbols(Symbols = "EUR/CNH", src = 'oanda', auto.assign = FALSE))
-        #ec_date <- as.Date(ec[,1])
-        #return(nrow(ec))},
-       # format = "yy/mm/dd",
-        #value = 50 )
+      selectInput(inputId="id",
+                 label = ("Select"),
+                  choices= list(' '= data_acq() )
 
-    ),
+      #selectInput("select", label = h3("Select box"),
+                  #choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                  #selected = 1),
+
+
+   )
+  )   ,
 
 
     # Main panel for displaying outputs ----

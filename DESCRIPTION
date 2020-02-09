@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Martina Viggiano
 Maintainer: Martina Viggiano <martina.viggiano2@studenti.unimi.it>
 Description: This package retrieves exchange rate between Euro and Renminbi from website 'oanda'
-    ...
+    ..
 License: GPL-3
 Imports: shiny, plotly, quantmod
 Encoding: UTF-8
