@@ -18,7 +18,7 @@ data_acq()
 ```
 
 ### Shiny App
-The function GUI() runs a Graphical User Interface to plot data provided by the function data_acq()
+The function ```GUI()``` runs a Graphical User Interface to plot data provided by the function data_acq()
 ```
 GUI()
 ```
