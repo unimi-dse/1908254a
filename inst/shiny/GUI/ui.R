@@ -11,7 +11,7 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
 
-      selectInput(inputId="id",
+      selectInput(inputId="data_acq",
                  label = ("Select"),
                   choices= list(' '= data_acq() )
 
