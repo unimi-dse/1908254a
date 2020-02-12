@@ -11,9 +11,9 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
 
-      selectInput(inputId="data_acq",
+      selectInput(inputId="data_id",
                  label = ("Select"),
-                  choices= list(' '= data_acq() )
+                  choices= list('EUR/CNH', 'USD/CNH'), selected = 'EUR/CNH'
 
       #selectInput("select", label = h3("Select box"),
                   #choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),

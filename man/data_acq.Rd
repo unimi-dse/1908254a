@@ -4,7 +4,10 @@
 \alias{data_acq}
 \title{Data acquisition}
 \usage{
-data_acq(id = "EUR/CNH")
+data_acq(id)
+}
+\arguments{
+\item{data_id}{}
 }
 \value{
 data.frame

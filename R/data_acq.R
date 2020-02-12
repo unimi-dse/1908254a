@@ -3,8 +3,9 @@
 #'
 #' @return data.frame
 #' @export
+#' @param data_id
 #'
-data_acq <- function(id="EUR/CNH") { #, start = "2020-01-01", end = Sys.Date()
+data_acq <- function(id) { #, start = "2020-01-01", end = Sys.Date()
  return(as.data.frame(quantmod::getSymbols(Symbols = id,
                                           src = 'oanda',
                                           auto.assign = FALSE)))
