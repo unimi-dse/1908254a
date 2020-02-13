@@ -4,7 +4,7 @@ This package retrieves exchange rate between Euro and Renminbi from website 'oan
 
 ## Installation
 ```
-devtools::install_github('unimi-dse/1908254')
+devtools::install_github('unimi-dse/1908254a')
 ```
 ## Usage
 ```
