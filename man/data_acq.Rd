@@ -7,7 +7,7 @@
 data_acq(id)
 }
 \arguments{
-\item{data_id}{}
+\item{id}{Symbol selected for data acquisition}
 }
 \value{
 data.frame
