@@ -13,5 +13,10 @@ data_acq(id)
 data.frame
 }
 \description{
-Data acquisition
+Acquisition of data from 'oanda' website through quantmod package
+}
+\examples{
+# Data acquisition currency rate between Euro and US dollars
+data_acq("EUR/USD")
+
 }
