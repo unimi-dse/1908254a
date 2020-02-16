@@ -1,4 +1,4 @@
-# eurcnh Package
+# oandacnh Package
 
 This package retrieves the currency exchange rate from [oanda website](https://www.oanda.com/rw-en/) and runs a Graphical User Interface (Shiny App).
 
@@ -9,17 +9,18 @@ devtools::install_github('unimi-dse/1908254a')
 ## Usage
 ```
 #load the package
-require(eurcnh)
+require(oandacnh)
 ```
 ### Data acquisition (data_acq)
-The function ```data_acq()``` downloads exchange rate 'EUR/CNH' from website 'oanda'.
+The function ```data_acq()``` downloads from [oanda website](https://www.oanda.com/rw-en/) the currency exchange rate defined in brackets.
 ```
-data_acq()
+# For example the exchange rate between Euro and Chinese Renminbi
+data_acq('EUR/CNH')
 ```
 
-### Shiny App
-The function ```GUI()``` runs a Graphical User Interface to plot data provided by the function ```data_acq()```
+### Shiny App (GUI)
+The function ```GUI()``` runs a Graphical User Interface to plot data provided by [oanda website](https://www.oanda.com/rw-en/) into an interactive plotly.
+In particular, it's possible to select two different currency exchange rate: 'EUR/CNH' and 'USD/CNH'.
 ```
 GUI()
 ```
-plots them into an interactive plotly though Shiny App.
