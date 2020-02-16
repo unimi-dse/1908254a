@@ -3,7 +3,7 @@ ui <- fluidPage(
 
 
   # App title
-  titlePanel("Exchange Rates"),
+  titlePanel("Currency Exchange Rates"),
 
   # Sidebar layout
   sidebarLayout(
