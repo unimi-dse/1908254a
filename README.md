@@ -8,7 +8,7 @@ devtools::install_github('unimi-dse/1908254a')
 ```
 ## Usage
 ```
-#load the package
+# Load the package
 require(oandacnh)
 ```
 ### Data acquisition (data_acq)
@@ -19,8 +19,8 @@ data_acq('EUR/CNH')
 ```
 
 ### Shiny App (GUI)
-The function ```GUI()``` runs a Graphical User Interface to plot data provided by [oanda website](https://www.oanda.com/rw-en/) into an interactive plotly.
-In particular, it's possible to select two different currency exchange rate: 'EUR/CNH' and 'USD/CNH'.
+The function ```GUI()``` runs a Graphical User Interface to plot data provided by [oanda website](https://www.oanda.com/rw-en/) into an interactive plot (plotly).
+In particular, it's possible to select four different currency exchange rate: 'EUR/CNH', 'USD/CNH','GBP/CNH' and 'JPY/CNH'.
 ```
 GUI()
 ```

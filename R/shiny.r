@@ -8,6 +8,6 @@
 #'
 GUI <- function(){
 
-  shiny::runApp(system.file("shiny/GUI", package = "eurcnh"))
+  shiny::runApp(system.file("shiny/GUI", package = "oandacnh"))
 
 }

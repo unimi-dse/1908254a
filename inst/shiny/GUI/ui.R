@@ -3,7 +3,7 @@ ui <- fluidPage(
 
 
   # App title
-  titlePanel("Rates Eur/Cnh"),
+  titlePanel("Exchange Rates"),
 
   # Sidebar layout
   sidebarLayout(
@@ -12,8 +12,8 @@ ui <- fluidPage(
     sidebarPanel(
 
       selectInput(inputId="data_id",
-                 label = ("Select"),
-                  choices= list('EUR/CNH', 'USD/CNH'), selected = 'EUR/CNH'
+                 label = ("Select currency"),
+                  choices= list('EUR/CNH', 'USD/CNH', 'GBP/CNH', 'JPY/CNH'), selected = 'EUR/CNH'
 
    )
   )   ,
