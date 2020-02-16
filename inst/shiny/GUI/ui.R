@@ -13,7 +13,7 @@ ui <- fluidPage(
 
       selectInput(inputId="data_id",
                  label = ("Select currency"),
-                  choices= list('EUR/CNH', 'USD/CNH', 'GBP/CNH', 'JPY/CNH'), selected = 'EUR/CNH'
+                  choices= list('EUR/CNH', 'USD/CNH', 'GBP/CNH', 'JPY/CNH' , 'CHF/CNH'), selected = 'EUR/CNH'
 
    )
   )   ,
