@@ -13,6 +13,7 @@ require(oandacnh)
 ```
 ### Data acquisition (data_acq)
 The function ```data_acq()``` downloads from [oanda](https://www.oanda.com/rw-en/) website the currency exchange rate defined in brackets.
+The list of the currency ISO codes can be found [here](https://www1.oanda.com/currency/help/currency-iso-code); the codes have to be separate by ```/```.
 ```
 # For example the exchange rate between Euro and Chinese Renminbi
 data_acq('EUR/CNH')
