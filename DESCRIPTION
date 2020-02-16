@@ -4,7 +4,7 @@ Title: Currency Exchange Rate Package - with respect to CNH
 Version: 0.1.0
 Author: Martina Viggiano
 Maintainer: Martina Viggiano <martina.viggiano2@studenti.unimi.it>
-Description: This package retrieves provides data from 'oanda' website and runs them in a Graphical User Interface.
+Description: This package provides data from 'oanda' website and runs them in a Graphical User Interface.
 License: GPL-3
 Imports: shiny, plotly, quantmod, shinycssloaders
 Encoding: UTF-8
