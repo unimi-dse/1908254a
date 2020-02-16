@@ -12,7 +12,7 @@
 #' # Data acquisition currency rate between Euro and US dollars
 #' data_acq("EUR/USD")
 #'
-data_acq <- function(id) { #, start = "2020-01-01", end = Sys.Date()
+data_acq <- function(id) {
  return(as.data.frame(quantmod::getSymbols(Symbols = id,
                                           src = 'oanda',
                                           auto.assign = FALSE)))

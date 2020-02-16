@@ -1,6 +1,6 @@
 # eurcnh Package
 
-This package retrieves exchange rate between Euro and Renminbi from website 'oanda'and plots them into an interactive plotly though Shiny App.
+This package retrieves the currency exchange rate from [oanda website](https://www.oanda.com/rw-en/) and runs a Graphical User Interface (Shiny App).
 
 ## Installation
 ```
@@ -22,3 +22,4 @@ The function ```GUI()``` runs a Graphical User Interface to plot data provided b
 ```
 GUI()
 ```
+plots them into an interactive plotly though Shiny App.
