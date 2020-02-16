@@ -2,7 +2,7 @@
 % Please edit documentation in R/shiny.r
 \name{GUI}
 \alias{GUI}
-\title{Create a Graphic User Interface}
+\title{Graphic User Interface (Shiny App)}
 \usage{
 GUI()
 }

@@ -1,4 +1,4 @@
-#' Create a Graphic User Interface
+#' Graphic User Interface (Shiny App)
 #'
 #' @description Create a graphic user interface and acquire data
 #'
